@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import ImovelCard from "./components/ImovelCard";
+import {supabase} from "./lib/supabase"
 import "./App.css";
 function App() {
+  const [imoveisBanco, setImoveisBanco] = useState([]);
   const imoveis = [
     {
       id: 1,
@@ -70,10 +73,32 @@ function App() {
       area: 68,
       aluguel: "2.900,00",
       condominio: "700,00",
-    },
+    }
   ];
+    useEffect(() => {
+
+  async function buscarImoveis() {
+
+    const { data, error } = await supabase
+      .from("imoveis")
+      .select("*");
+
+    if (error) {
+      console.error("Erro ao buscar imóveis:", error);
+      return;
+    }
+
+    console.log("Imóveis do Supabase:", data);
+
+    setImoveisBanco(data);
+  }
+
+  buscarImoveis();
+
+}, []);
 
  return (
+
   <div className="site">
 
     {/* MENU */}
@@ -184,21 +209,25 @@ function App() {
 
         <div className="lista-imoveis">
 
-          {imoveis.map((imovel) => (
-            <ImovelCard
-              key={imovel.id}
-              imagem={imovel.imagem}
-              titulo={imovel.titulo}
-              endereco={imovel.endereco}
-              bairro={imovel.bairro}
-              cidade={imovel.cidade}
-              quartos={imovel.quartos}
-              banheiros={imovel.banheiros}
-              area={imovel.area}
-              aluguel={imovel.aluguel}
-              condominio={imovel.condominio}
-            />
-          ))}
+        {imoveisBanco.map((imovel) => (
+  <ImovelCard
+    key={imovel.id}
+    imagem={imovel.imagem_url}
+    titulo={imovel.titulo}
+    endereco={imovel.endereco}
+    bairro={imovel.bairro}
+    cidade={imovel.cidade}
+    quartos={imovel.quartos}
+    banheiros={imovel.banheiros}
+    area={imovel.area}
+    aluguel={Number(imovel.preco).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+    })}
+    condominio={Number(imovel.condominio || 0).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+    })}
+  />
+))}
 
         </div>
 
