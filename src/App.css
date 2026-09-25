@@ -628,4 +628,776 @@ footer {
 
 .botao-hero-secundario:hover {
   background: rgba(255, 255, 255, 0.14);
+}/* PÁGINA DE CONTATO */
+
+.pagina-contato {
+  min-height: 100vh;
+  background: #f4f7fa;
+}
+
+.contato-header {
+  background: #ffffff;
+  padding: 18px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contato-header nav {
+  display: flex;
+  gap: 25px;
+}
+
+.contato-header nav a {
+  text-decoration: none;
+  color: #173b5f;
+  font-weight: 600;
+}
+
+.contato-pagina-conteudo {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contato-pagina-texto span {
+  color: #2c6da4;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.contato-pagina-texto h1 {
+  font-size: 42px;
+  color: #163b5d;
+  margin: 15px 0;
+}
+
+.contato-pagina-texto p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.contato-info {
+  margin-top: 30px;
+}
+
+.contato-info p {
+  margin-bottom: 15px;
+}
+
+.voltar-inicio {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #173b5f;
+  font-weight: bold;
+}
+
+.formulario-pagina-contato {
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-pagina-contato h2 {
+  color: #173b5f;
+  margin-bottom: 25px;
+}
+
+.formulario-pagina-contato label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.formulario-pagina-contato input,
+.formulario-pagina-contato textarea {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 18px;
+  border: 1px solid #d7dde3;
+  border-radius: 7px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.formulario-pagina-contato button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  background: #173b5f;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formulario-pagina-contato button:hover {
+  background: #0d2c47;
+}
+
+.mensagem-formulario {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .contato-pagina-conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-pagina-texto h1 {
+    font-size: 32px;
+  }
+}/* PÁGINA DE LOGIN */
+
+.pagina-login {
+  min-height: 100vh;
+  background: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.login-logo {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #173b5f;
+  margin-bottom: 25px;
+}
+
+.login-logo span {
+  font-weight: normal;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.login-etiqueta {
+  color: #2c6da4;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.login-card h1 {
+  margin: 10px 0;
+  color: #173b5f;
+  font-size: 34px;
+}
+
+.login-card > p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #333;
+}
+
+.login-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  margin-bottom: 20px;
+  border: 1px solid #d7dde3;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.login-card button {
+  width: 100%;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  background: #173b5f;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background: #0d2c47;
+}
+
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-mensagem {
+  text-align: center;
+  margin-top: 18px;
+  color: #b42318;
+  font-weight: 600;
+}
+
+.login-voltar {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #173b5f;
+  font-weight: 600;
+}/* ============================= */
+/* DASHBOARD - HC IMÓVEIS */
+/* ============================= */
+
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f7fa;
+  color: #1f2937;
+}
+
+/* MENU LATERAL */
+
+.dashboard-menu {
+  width: 260px;
+  min-height: 100vh;
+  background: #153b5f;
+  color: white;
+  padding: 30px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-logo {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dashboard-logo span {
+  font-weight: 300;
+}
+
+.dashboard-usuario {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin-bottom: 35px;
+  word-break: break-word;
+}
+
+/* LINKS DO MENU */
+
+.dashboard-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-menu nav a {
+  display: block;
+  padding: 13px 14px;
+  text-decoration: none;
+  color: #e2e8f0;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.dashboard-menu nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+/* VER SITE */
+
+.dashboard-site {
+  margin-top: 35px;
+  text-decoration: none;
+  color: white;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dashboard-site:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* BOTÃO SAIR */
+
+.dashboard-sair {
+  margin-top: 12px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #153b5f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dashboard-sair:hover {
+  background: #e8eef4;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.dashboard-conteudo {
+  flex: 1;
+  padding: 45px;
+  box-sizing: border-box;
+}
+
+/* CABEÇALHO */
+
+.dashboard-topo {
+  margin-bottom: 35px;
+}
+
+.dashboard-topo span {
+  color: #2c6da4;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.dashboard-topo h1 {
+  color: #153b5f;
+  font-size: 38px;
+  margin: 8px 0;
+}
+
+.dashboard-topo p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* CARDS */
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  transition: 0.2s;
+  border: 1px solid #edf1f5;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card span {
+  font-size: 30px;
+}
+
+.dashboard-card h3 {
+  color: #153b5f;
+  font-size: 20px;
+  margin: 15px 0 8px;
+}
+
+.dashboard-card p {
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 1000px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .dashboard-menu {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .dashboard-menu nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-conteudo {
+    padding: 25px;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}/* ================================= */
+/* PÁGINA DE CADASTRO - HC IMÓVEIS */
+/* ================================= */
+
+.pagina-cadastro {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #f5f7fa;
+}
+
+/* LADO ESQUERDO */
+
+.cadastro-lado-esquerdo {
+  min-height: 100vh;
+  background: #153b5f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.cadastro-marca {
+  max-width: 480px;
+  text-align: center;
+}
+
+.cadastro-icone {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.cadastro-marca h1 {
+  font-size: 50px;
+  margin: 0 0 20px;
+}
+
+.cadastro-marca h1 span {
+  font-weight: 300;
+  color: #b9d8f1;
+}
+
+.cadastro-marca p {
+  color: #dceaf5;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* LADO DIREITO */
+
+.cadastro-lado-direito {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.cadastro-card {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.cadastro-card h2 {
+  color: #153b5f;
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+.cadastro-subtitulo {
+  color: #666;
+  margin-bottom: 28px;
+}
+
+/* CAMPOS */
+
+.cadastro-card label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin: 16px 0 7px;
+}
+
+.cadastro-card input,
+.cadastro-card select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #d5dce3;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+}
+
+.cadastro-card input:focus,
+.cadastro-card select:focus {
+  outline: none;
+  border-color: #2c6da4;
+}
+
+/* BOTÃO */
+
+.cadastro-card button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 8px;
+  background: #153b5f;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cadastro-card button:hover {
+  background: #0d2c47;
+}
+
+.cadastro-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* LINKS */
+
+.cadastro-login {
+  margin-top: 25px;
+  text-align: center;
+  color: #555;
+}
+
+.cadastro-login a {
+  color: #153b5f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cadastro-voltar {
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* MENSAGENS */
+
+.cadastro-mensagem {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cadastro-mensagem.sucesso {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.cadastro-mensagem.erro {
+  background: #fff1f0;
+  color: #b42318;
+}
+
+.cadastro-logo-mobile {
+  display: none;
+}
+
+/* CELULAR */
+
+@media (max-width: 850px) {
+  .pagina-cadastro {
+    grid-template-columns: 1fr;
+  }
+
+  .cadastro-lado-esquerdo {
+    display: none;
+  }
+
+  .cadastro-lado-direito {
+    padding: 20px;
+  }
+
+  .cadastro-card {
+    padding: 28px;
+  }
+
+  .cadastro-logo-mobile {
+    display: block;
+    text-align: center;
+    color: #153b5f;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  .cadastro-logo-mobile span {
+    font-weight: normal;
+  }
+}/* ============================= */
+/* ÁREA DO CLIENTE - HC IMÓVEIS */
+/* ============================= */
+
+.area-usuario {
+  min-height: 100vh;
+  background: #f4f7fa;
+  padding: 50px 25px;
+  box-sizing: border-box;
+}
+
+.area-usuario-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.area-usuario-card h1 {
+  margin: 0 0 10px;
+  color: #153b5f;
+  font-size: 38px;
+}
+
+.area-usuario-card > p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.area-usuario-card > p strong {
+  color: #153b5f;
+}
+
+/* CARDS DE OPÇÕES */
+
+.area-opcoes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin: 35px 0;
+}
+
+.area-opcoes > div {
+  background: #f8fafc;
+  border: 1px solid #e4eaf0;
+  border-radius: 14px;
+  padding: 28px;
+  transition: 0.2s;
+}
+
+.area-opcoes > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.area-opcoes > div {
+  font-size: 28px;
+}
+
+.area-opcoes h3 {
+  color: #153b5f;
+  margin: 15px 0 8px;
+  font-size: 21px;
+}
+
+.area-opcoes p {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* VOLTAR PARA O SITE */
+
+.area-usuario-card > a {
+  display: inline-block;
+  text-decoration: none;
+  background: #eef4f8;
+  color: #153b5f;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.area-usuario-card > a:hover {
+  background: #dfeaf2;
+}
+
+/* BOTÃO SAIR */
+
+.area-usuario-card > button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #153b5f;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.area-usuario-card > button:hover {
+  background: #0d2c47;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 750px) {
+  .area-usuario {
+    padding: 20px 15px;
+  }
+
+  .area-usuario-card {
+    padding: 25px;
+  }
+
+  .area-usuario-card h1 {
+    font-size: 30px;
+  }
+
+  .area-opcoes {
+    grid-template-columns: 1fr;
+  }
+
+  .area-usuario-card > a,
+  .area-usuario-card > button {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 6px 0;
+  }
 }
