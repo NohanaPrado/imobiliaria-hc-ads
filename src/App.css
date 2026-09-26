@@ -1400,4 +1400,246 @@ footer {
     text-align: center;
     margin: 6px 0;
   }
+}/* ================================= */
+/* FORMULÁRIO DE INTERESSE - HOME */
+/* ================================= */
+
+.contato .formulario-contato {
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+/* CAMPOS */
+
+.contato .formulario-contato input,
+.contato .formulario-contato select,
+.contato .formulario-contato textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 16px;
+  border: 1px solid #d7e0e8;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #25364a;
+  font-size: 15px;
+  font-family: inherit;
+  transition: 0.2s;
+}
+
+/* DEIXA O SELECT MAIS BONITO */
+
+.contato .formulario-contato select {
+  cursor: pointer;
+}
+
+/* FOCO NOS CAMPOS */
+
+.contato .formulario-contato input:focus,
+.contato .formulario-contato select:focus,
+.contato .formulario-contato textarea:focus {
+  outline: none;
+  border-color: #2c6da4;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(44, 109, 164, 0.12);
+}
+
+/* TEXTAREA OCUPA A LINHA TODA */
+
+.contato .formulario-contato textarea {
+  grid-column: 1 / -1;
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* BOTÃO */
+
+.contato .formulario-contato button {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #173f63;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contato .formulario-contato button:hover {
+  background: #0e304d;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(23, 63, 99, 0.25);
+}
+
+.contato .formulario-contato button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* MENSAGEM DE RETORNO */
+
+.contato .formulario-contato > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  background: #eef6fb;
+  color: #173f63;
+  font-weight: 600;
+}
+
+/* PLACEHOLDERS */
+
+.contato .formulario-contato input::placeholder,
+.contato .formulario-contato textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+  .contato .formulario-contato {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .contato .formulario-contato textarea,
+  .contato .formulario-contato button,
+  .contato .formulario-contato > p {
+    grid-column: 1;
+  }
+}/* ================================= */
+/* FILTROS DE IMÓVEIS */
+/* ================================= */
+
+.secao-filtros {
+  max-width: 1200px;
+  margin: 40px auto 30px;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.filtros-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filtros-topo h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #173f63;
+}
+
+.filtros-topo p {
+  margin: 0;
+  color: #5f7287;
+  font-size: 16px;
+}
+
+/* grade dos filtros */
+.filtros-barra {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+/* campos */
+.filtros-barra input,
+.filtros-barra select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d5dde6;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #25364a;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.filtros-barra input:focus,
+.filtros-barra select:focus {
+  outline: none;
+  border-color: #2c6da4;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(44, 109, 164, 0.12);
+}
+
+.filtros-barra input::placeholder {
+  color: #94a3b8;
+}
+
+/* botão */
+.filtros-barra button {
+  padding: 14px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #173f63;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filtros-barra button:hover {
+  background: #0f2f4a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(23, 63, 99, 0.22);
+}
+
+/* responsivo */
+@media (max-width: 992px) {
+  .filtros-barra {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filtros-barra button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .secao-filtros {
+    padding: 20px;
+    margin: 25px 16px;
+  }
+
+  .filtros-topo h2 {
+    font-size: 24px;
+  }
+
+  .filtros-topo p {
+    font-size: 14px;
+  }
+
+  .filtros-barra {
+    grid-template-columns: 1fr;
+  }
+
+  .filtros-barra button {
+    grid-column: auto;
+  }
 }

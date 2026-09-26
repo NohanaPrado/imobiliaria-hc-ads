@@ -3,17 +3,27 @@ import { Link } from "react-router-dom";
 import ImovelCard from "../components/ImovelCard";
 import { supabase } from "../lib/supabase";
 import "../App.css";
+
 function Home() {
+  // =========================
   // IMÓVEIS
+  // =========================
+
   const [imoveisBanco, setImoveisBanco] = useState([]);
 
+  // =========================
   // FILTROS
+  // =========================
+
   const [cidadeFiltro, setCidadeFiltro] = useState("");
   const [precoMaximo, setPrecoMaximo] = useState("");
   const [quartosFiltro, setQuartosFiltro] = useState("");
   const [tipoNegocioFiltro, setTipoNegocioFiltro] = useState("");
 
+  // =========================
   // FORMULÁRIO
+  // =========================
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -22,7 +32,10 @@ function Home() {
   const [mensagemEnvio, setMensagemEnvio] = useState("");
   const [enviando, setEnviando] = useState(false);
 
-  // BUSCAR IMÓVEIS NO SUPABASE
+  // =========================
+  // BUSCAR IMÓVEIS
+  // =========================
+
   useEffect(() => {
     async function buscarImoveis() {
       const { data, error } = await supabase
@@ -41,7 +54,10 @@ function Home() {
     buscarImoveis();
   }, []);
 
+  // =========================
   // FILTRAR IMÓVEIS
+  // =========================
+
   const imoveisFiltrados = imoveisBanco.filter((imovel) => {
     const atendeCidade =
       cidadeFiltro === "" ||
@@ -69,7 +85,21 @@ function Home() {
     );
   });
 
-  // ENVIAR PROPOSTA / INTERESSE
+  // =========================
+  // LIMPAR FILTROS
+  // =========================
+
+  function limparFiltros() {
+    setCidadeFiltro("");
+    setPrecoMaximo("");
+    setQuartosFiltro("");
+    setTipoNegocioFiltro("");
+  }
+
+  // =========================
+  // ENVIAR INTERESSE
+  // =========================
+
   async function enviarInteresse(event) {
     event.preventDefault();
 
@@ -93,17 +123,19 @@ function Home() {
       ]);
 
     if (error) {
-      console.error("Erro ao enviar proposta:", error);
+      console.error("Erro ao enviar interesse:", error);
 
       setMensagemEnvio(
-        "Não foi possível enviar. Precisamos configurar a tabela de propostas no Supabase."
+        "Não foi possível enviar sua mensagem."
       );
 
       setEnviando(false);
       return;
     }
 
-    setMensagemEnvio("Interesse enviado com sucesso!");
+    setMensagemEnvio(
+      "Interesse enviado com sucesso!"
+    );
 
     setNome("");
     setEmail("");
@@ -117,37 +149,61 @@ function Home() {
   return (
     <div className="site">
 
-      {/* MENU / HEADER */}
+      {/* =========================
+          MENU
+      ========================= */}
+
       <header className="cabecalho">
         <div className="container menu">
 
           <div className="logo">
             HC <span>Imóveis</span>
           </div>
-<nav>
-  <a href="#inicio">Início</a>
-  <a href="#imoveis">Imóveis</a>
-  <a href="#sobre">Sobre</a>
-  <a href="#servicos">Serviços</a>
 
-  <Link to="/contato">
-    Contato
-  </Link>
+          <nav>
+            <a href="#inicio">
+              Início
+            </a>
 
-  <Link to="/login">
-    Entrar
-  </Link>
-</nav>
+            <a href="#imoveis">
+              Imóveis
+            </a>
 
-          <a href="#imoveis" className="botao-menu">
+            <a href="#sobre">
+              Sobre
+            </a>
+
+            <a href="#servicos">
+              Serviços
+            </a>
+
+            <Link to="/contato">
+              Contato
+            </Link>
+
+            <Link to="/login">
+              Entrar
+            </Link>
+          </nav>
+
+          <a
+            href="#imoveis"
+            className="botao-menu"
+          >
             Ver imóveis
           </a>
 
         </div>
       </header>
 
-      {/* CAPA / HERO */}
-      <section className="hero" id="inicio">
+      {/* =========================
+          CAPA
+      ========================= */}
+
+      <section
+        className="hero"
+        id="inicio"
+      >
 
         <div className="hero-conteudo">
 
@@ -161,25 +217,37 @@ function Home() {
           </h1>
 
           <p>
-            Apartamentos selecionados em Curitiba com informações
-            claras, praticidade e segurança para sua negociação.
+            Apartamentos selecionados em Curitiba
+            com informações claras, praticidade
+            e segurança para sua negociação.
           </p>
 
           <div className="hero-botoes">
 
-            <a href="#imoveis" className="botao-hero">
+            <a
+              href="#imoveis"
+              className="botao-hero"
+            >
               Ver imóveis disponíveis
             </a>
-<Link to="/contato" className="botao-hero-secundario">
-  Falar com atendimento
-</Link>
+
+            <Link
+              to="/contato"
+              className="botao-hero-secundario"
+            >
+              Falar com atendimento
+            </Link>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* BENEFÍCIOS */}
+      {/* =========================
+          BENEFÍCIOS
+      ========================= */}
+
       <section className="beneficios">
 
         <div className="container beneficios-grid">
@@ -188,8 +256,13 @@ function Home() {
             <span>🏠</span>
 
             <div>
-              <strong>Imóveis selecionados</strong>
-              <p>Opções para diferentes perfis</p>
+              <strong>
+                Imóveis selecionados
+              </strong>
+
+              <p>
+                Opções para diferentes perfis
+              </p>
             </div>
           </div>
 
@@ -197,8 +270,13 @@ function Home() {
             <span>📍</span>
 
             <div>
-              <strong>Boa localização</strong>
-              <p>Imóveis em Curitiba</p>
+              <strong>
+                Boa localização
+              </strong>
+
+              <p>
+                Imóveis em Curitiba
+              </p>
             </div>
           </div>
 
@@ -206,8 +284,13 @@ function Home() {
             <span>🔑</span>
 
             <div>
-              <strong>Negociação facilitada</strong>
-              <p>Informações claras e objetivas</p>
+              <strong>
+                Negociação facilitada
+              </strong>
+
+              <p>
+                Informações claras e objetivas
+              </p>
             </div>
           </div>
 
@@ -215,144 +298,215 @@ function Home() {
 
       </section>
 
-      {/* IMÓVEIS */}
-      <section className="secao-imoveis" id="imoveis">
+      {/* =========================
+          IMÓVEIS
+      ========================= */}
+
+      <section
+        className="secao-imoveis"
+        id="imoveis"
+      >
 
         <div className="container">
 
           <div className="titulo-secao">
 
-            <span>OPORTUNIDADES</span>
+            <span>
+              OPORTUNIDADES
+            </span>
 
-            <h2>Imóveis disponíveis</h2>
+            <h2>
+              Imóveis disponíveis
+            </h2>
 
             <p>
-              Utilize os filtros para encontrar o imóvel ideal.
+              Encontre uma opção que combine com você.
             </p>
 
           </div>
 
-          {/* FILTROS */}
-          <div className="filtros-imoveis">
+          {/* =====================
+              FILTROS NOVOS
+          ===================== */}
 
-            <input
-              type="text"
-              placeholder="Cidade"
-              value={cidadeFiltro}
-              onChange={(e) =>
-                setCidadeFiltro(e.target.value)
-              }
-            />
+          <div className="secao-filtros">
 
-            <input
-              type="number"
-              placeholder="Preço máximo"
-              value={precoMaximo}
-              onChange={(e) =>
-                setPrecoMaximo(e.target.value)
-              }
-            />
+            <div className="filtros-topo">
 
-            <select
-              value={quartosFiltro}
-              onChange={(e) =>
-                setQuartosFiltro(e.target.value)
-              }
-            >
+              <div>
+                <h2>
+                  Encontre o imóvel ideal
+                </h2>
 
-              <option value="">Quartos</option>
-              <option value="1">1 quarto</option>
-              <option value="2">2 quartos</option>
-              <option value="3">3 quartos</option>
+                <p>
+                  Utilize os filtros para encontrar
+                  o imóvel ideal.
+                </p>
+              </div>
 
-            </select>
+            </div>
 
-            <select
-              value={tipoNegocioFiltro}
-              onChange={(e) =>
-                setTipoNegocioFiltro(e.target.value)
-              }
-            >
+            <div className="filtros-barra">
 
-              <option value="">
-                Alugar ou comprar
-              </option>
+              <input
+                type="text"
+                placeholder="Cidade"
+                value={cidadeFiltro}
+                onChange={(e) =>
+                  setCidadeFiltro(e.target.value)
+                }
+              />
 
-              <option value="Aluguel">
-                Aluguel
-              </option>
+              <input
+                type="number"
+                placeholder="Preço máximo"
+                value={precoMaximo}
+                onChange={(e) =>
+                  setPrecoMaximo(e.target.value)
+                }
+              />
 
-              <option value="Venda">
-                Venda
-              </option>
+              <select
+                value={quartosFiltro}
+                onChange={(e) =>
+                  setQuartosFiltro(e.target.value)
+                }
+              >
+                <option value="">
+                  Quartos
+                </option>
 
-            </select>
+                <option value="1">
+                  1 quarto
+                </option>
 
-            <button
-              type="button"
-              onClick={() => {
-                setCidadeFiltro("");
-                setPrecoMaximo("");
-                setQuartosFiltro("");
-                setTipoNegocioFiltro("");
-              }}
-            >
-              Limpar filtros
-            </button>
+                <option value="2">
+                  2 quartos
+                </option>
+
+                <option value="3">
+                  3 quartos
+                </option>
+              </select>
+
+              <select
+                value={tipoNegocioFiltro}
+                onChange={(e) =>
+                  setTipoNegocioFiltro(
+                    e.target.value
+                  )
+                }
+              >
+
+                <option value="">
+                  Alugar ou comprar
+                </option>
+
+                <option value="Aluguel">
+                  Alugar
+                </option>
+
+                <option value="Venda">
+                  Comprar
+                </option>
+
+              </select>
+
+              <button
+                type="button"
+                onClick={limparFiltros}
+              >
+                Limpar filtros
+              </button>
+
+            </div>
 
           </div>
 
-          {/* LISTA DOS IMÓVEIS */}
+          {/* =====================
+              LISTA DE IMÓVEIS
+          ===================== */}
+
           <div className="lista-imoveis">
 
-            {imoveisFiltrados.map((imovel) => (
+            {imoveisFiltrados.map(
+              (imovel) => (
 
-              <ImovelCard
-                key={imovel.id}
-                imagem={imovel.imagem_url}
-                titulo={imovel.titulo}
-                endereco={imovel.endereco}
-                bairro={imovel.bairro}
-                cidade={imovel.cidade}
-                quartos={imovel.quartos}
-                banheiros={imovel.banheiros}
-                area={imovel.area}
-                aluguel={Number(
-                  imovel.preco
-                ).toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                })}
-                condominio={Number(
-                  imovel.condominio || 0
-                ).toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                })}
-              />
+                <ImovelCard
+                  key={imovel.id}
+                  imagem={imovel.imagem_url}
+                  titulo={imovel.titulo}
+                  endereco={imovel.endereco}
+                  bairro={imovel.bairro}
+                  cidade={imovel.cidade}
+                  quartos={imovel.quartos}
+                  banheiros={imovel.banheiros}
+                  area={imovel.area}
+                  aluguel={Number(
+                    imovel.preco
+                  ).toLocaleString(
+                    "pt-BR",
+                    {
+                      minimumFractionDigits: 2,
+                    }
+                  )}
+                  condominio={Number(
+                    imovel.condominio || 0
+                  ).toLocaleString(
+                    "pt-BR",
+                    {
+                      minimumFractionDigits: 2,
+                    }
+                  )}
+                />
 
-            ))}
+              )
+            )}
 
           </div>
 
           {imoveisFiltrados.length === 0 && (
-            <p style={{ textAlign: "center" }}>
-              Nenhum imóvel encontrado com esses filtros.
-            </p>
+            <div
+              style={{
+                textAlign: "center",
+                padding: "35px",
+                color: "#64748b",
+              }}
+            >
+              <h3>
+                Nenhum imóvel encontrado
+              </h3>
+
+              <p>
+                Tente alterar ou limpar os filtros.
+              </p>
+            </div>
           )}
 
         </div>
 
       </section>
 
-      {/* SOBRE A IMOBILIÁRIA */}
-      <section className="sobre" id="sobre">
+      {/* =========================
+          SOBRE
+      ========================= */}
+
+      <section
+        className="sobre"
+        id="sobre"
+      >
 
         <div className="container">
 
           <div className="titulo-secao">
 
-            <span>SOBRE NÓS</span>
+            <span>
+              SOBRE NÓS
+            </span>
 
-            <h2>HC Imóveis</h2>
+            <h2>
+              HC Imóveis
+            </h2>
 
           </div>
 
@@ -361,19 +515,23 @@ function Home() {
             <div>
 
               <h3>
-                Facilitando a busca pelo seu próximo imóvel
+                Facilitando a busca pelo
+                seu próximo imóvel
               </h3>
 
               <p>
-                A HC Imóveis é uma plataforma imobiliária
-                desenvolvida para facilitar o encontro entre
-                clientes, proprietários e imóveis.
+                A HC Imóveis é uma plataforma
+                imobiliária desenvolvida para
+                facilitar o encontro entre clientes,
+                proprietários e imóveis.
               </p>
 
               <p>
-                Nosso objetivo é oferecer informações organizadas,
-                atendimento simples e uma experiência prática para
-                quem deseja alugar, comprar ou administrar um imóvel.
+                Nosso objetivo é oferecer informações
+                organizadas, atendimento simples e
+                uma experiência prática para quem
+                deseja alugar, comprar ou administrar
+                um imóvel.
               </p>
 
             </div>
@@ -384,14 +542,22 @@ function Home() {
 
       </section>
 
-      {/* SERVIÇOS */}
-      <section className="servicos" id="servicos">
+      {/* =========================
+          SERVIÇOS
+      ========================= */}
+
+      <section
+        className="servicos"
+        id="servicos"
+      >
 
         <div className="container">
 
           <div className="titulo-secao">
 
-            <span>NOSSOS SERVIÇOS</span>
+            <span>
+              NOSSOS SERVIÇOS
+            </span>
 
             <h2>
               Soluções imobiliárias
@@ -407,55 +573,58 @@ function Home() {
           <div className="servicos-grid">
 
             <div className="servico">
-
               <span>🏡</span>
 
-              <h3>Avaliação de imóveis</h3>
+              <h3>
+                Avaliação de imóveis
+              </h3>
 
               <p>
-                Auxílio na análise do imóvel e definição
-                de valores para locação ou venda.
+                Auxílio na análise do imóvel
+                e definição de valores para
+                locação ou venda.
               </p>
-
             </div>
 
             <div className="servico">
-
               <span>🔑</span>
 
-              <h3>Administração de aluguel</h3>
+              <h3>
+                Administração de aluguel
+              </h3>
 
               <p>
-                Organização de imóveis, contratos,
-                inquilinos e informações de locação.
+                Organização de imóveis,
+                contratos, inquilinos e
+                informações de locação.
               </p>
-
             </div>
 
             <div className="servico">
-
               <span>📅</span>
 
-              <h3>Agendamento de visitas</h3>
+              <h3>
+                Agendamento de visitas
+              </h3>
 
               <p>
-                Clientes podem solicitar visitas
-                aos imóveis disponíveis.
+                Solicite visitas aos imóveis
+                disponíveis de forma prática.
               </p>
-
             </div>
 
             <div className="servico">
-
               <span>📄</span>
 
-              <h3>Gestão de contratos</h3>
+              <h3>
+                Gestão de contratos
+              </h3>
 
               <p>
-                Controle de contratos, valores,
-                datas e informações importantes.
+                Controle de contratos,
+                valores, datas e informações
+                importantes.
               </p>
-
             </div>
 
           </div>
@@ -464,21 +633,30 @@ function Home() {
 
       </section>
 
-      {/* CONTATO / PROPOSTA */}
-      <section className="contato" id="contato">
+      {/* =========================
+          CONTATO / INTERESSE
+      ========================= */}
+
+      <section
+        className="contato"
+        id="contato"
+      >
 
         <div className="container">
 
           <div className="titulo-secao">
 
-            <span>FALE CONOSCO</span>
+            <span>
+              FALE CONOSCO
+            </span>
 
             <h2>
               Tenho interesse em um imóvel
             </h2>
 
             <p>
-              Preencha o formulário e envie sua mensagem.
+              Preencha seus dados e nossa equipe
+              poderá entrar em contato.
             </p>
 
           </div>
@@ -492,14 +670,17 @@ function Home() {
               </h3>
 
               <p>
-                Nossa equipe está pronta para ajudar você
-                a conhecer as opções disponíveis.
+                Nossa equipe está pronta para ajudar
+                você a encontrar o imóvel ideal.
               </p>
 
               <div className="dados-contato">
 
                 <p>
-                  📞 <strong>(41) 99228-6652</strong>
+                  📞{" "}
+                  <strong>
+                    (41) 99228-6652
+                  </strong>
                 </p>
 
                 <p>
@@ -515,9 +696,17 @@ function Home() {
 
               </div>
 
+              <Link
+                to="/contato"
+                className="botao-contato"
+              >
+                Página de contato
+              </Link>
+
             </div>
 
             {/* FORMULÁRIO */}
+
             <form
               className="formulario-contato"
               onSubmit={enviarInteresse}
@@ -555,7 +744,9 @@ function Home() {
               <select
                 value={imovelSelecionado}
                 onChange={(e) =>
-                  setImovelSelecionado(e.target.value)
+                  setImovelSelecionado(
+                    e.target.value
+                  )
                 }
               >
 
@@ -563,24 +754,28 @@ function Home() {
                   Selecione um imóvel
                 </option>
 
-                {imoveisBanco.map((imovel) => (
-                  <option
-                    key={imovel.id}
-                    value={imovel.id}
-                  >
-                    {imovel.titulo}
-                  </option>
-                ))}
+                {imoveisBanco.map(
+                  (imovel) => (
+
+                    <option
+                      key={imovel.id}
+                      value={imovel.id}
+                    >
+                      {imovel.titulo}
+                    </option>
+
+                  )
+                )}
 
               </select>
 
               <textarea
                 placeholder="Digite sua mensagem"
+                rows="5"
                 value={mensagem}
                 onChange={(e) =>
                   setMensagem(e.target.value)
                 }
-                rows="5"
                 required
               />
 
@@ -588,15 +783,15 @@ function Home() {
                 type="submit"
                 disabled={enviando}
               >
-
                 {enviando
                   ? "Enviando..."
                   : "Enviar interesse"}
-
               </button>
 
               {mensagemEnvio && (
-                <p>{mensagemEnvio}</p>
+                <p>
+                  {mensagemEnvio}
+                </p>
               )}
 
             </form>
@@ -607,14 +802,19 @@ function Home() {
 
       </section>
 
-      {/* RODAPÉ / FOOTER */}
+      {/* =========================
+          RODAPÉ
+      ========================= */}
+
       <footer>
 
         <div className="container rodape">
 
           <div>
 
-            <strong>HC Imóveis</strong>
+            <strong>
+              HC Imóveis
+            </strong>
 
             <p>
               Seu próximo imóvel começa aqui.
