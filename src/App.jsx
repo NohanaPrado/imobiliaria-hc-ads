@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import AdminImoveis from "./pages/AdminImoveis";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
@@ -19,6 +19,10 @@ function App() {
         <Route path="/contato" element={<Contato />} />
         <Route path="/cliente" element={<Cliente />} />
         <Route path="/proprietario" element={<Proprietario />} />
+        <Route
+  path="/dashboard/imoveis"
+  element={<AdminImoveis />}
+/>s
       </Routes>
     </BrowserRouter>
   );

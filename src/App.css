@@ -1642,4 +1642,209 @@ footer {
   .filtros-barra button {
     grid-column: auto;
   }
+}/* ================================= */
+/* ADMIN - GERENCIAR IMÓVEIS */
+/* ================================= */
+
+.admin-pagina {
+  min-height: 100vh;
+  background: #f4f7fa;
+  padding: 45px;
+  box-sizing: border-box;
+  color: #1f2937;
+}
+
+/* CABEÇALHO */
+
+.admin-cabecalho {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-cabecalho span {
+  display: block;
+  color: #2c6da4;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.admin-cabecalho h1 {
+  margin: 0 0 8px;
+  color: #153b5f;
+  font-size: 38px;
+}
+
+.admin-cabecalho p {
+  margin: 0;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.admin-voltar {
+  text-decoration: none;
+  color: #153b5f;
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+.admin-voltar:hover {
+  background: #edf4f8;
+}
+
+/* AÇÕES */
+
+.admin-acoes {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.admin-acoes button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 9px;
+  background: #153b5f;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-acoes button:hover {
+  background: #0d2c47;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(21, 59, 95, 0.2);
+}
+
+/* TABELA */
+
+.admin-tabela-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.admin-tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-tabela thead {
+  background: #153b5f;
+}
+
+.admin-tabela th {
+  padding: 17px;
+  text-align: left;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.admin-tabela td {
+  padding: 17px;
+  border-bottom: 1px solid #e8edf2;
+  color: #475569;
+  vertical-align: middle;
+}
+
+.admin-tabela tbody tr {
+  transition: 0.2s;
+}
+
+.admin-tabela tbody tr:hover {
+  background: #f8fafc;
+}
+
+.admin-tabela td strong {
+  color: #153b5f;
+  font-size: 15px;
+}
+
+.admin-tabela td small {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* BOTÕES DA TABELA */
+
+.admin-botoes {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-botoes button {
+  padding: 9px 13px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.botao-editar {
+  background: #e8f2fb;
+  color: #17639a;
+}
+
+.botao-editar:hover {
+  background: #d3e8f7;
+}
+
+.botao-excluir {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.botao-excluir:hover {
+  background: #ffe0df;
+}
+
+/* SEM IMÓVEIS */
+
+.admin-vazio {
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+  .admin-pagina {
+    padding: 20px;
+  }
+
+  .admin-cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-cabecalho h1 {
+    font-size: 30px;
+  }
+
+  .admin-acoes {
+    justify-content: stretch;
+  }
+
+  .admin-acoes button {
+    width: 100%;
+  }
 }
