@@ -1847,4 +1847,153 @@ footer {
   .admin-acoes button {
     width: 100%;
   }
+}/* ================================= */
+/* FORMULÁRIO ADMIN - NOVO IMÓVEL */
+/* ================================= */
+
+.admin-formulario {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.admin-formulario-titulo {
+  margin-bottom: 28px;
+}
+
+.admin-formulario-titulo h2 {
+  margin: 0 0 8px;
+  color: #153b5f;
+  font-size: 28px;
+}
+
+.admin-formulario-titulo p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+/* ORGANIZA OS CAMPOS */
+
+.admin-formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* LABELS */
+
+.admin-formulario-grid label {
+  display: block;
+  margin-bottom: 7px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* INPUTS, SELECTS E TEXTAREA */
+
+.admin-formulario-grid input,
+.admin-formulario-grid select,
+.admin-formulario-grid textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #d6dee7;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 15px;
+  font-family: inherit;
+  transition: 0.2s;
+}
+
+.admin-formulario-grid input:focus,
+.admin-formulario-grid select:focus,
+.admin-formulario-grid textarea:focus {
+  outline: none;
+  border-color: #2c6da4;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(44, 109, 164, 0.12);
+}
+
+.admin-formulario-grid textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* CAMPOS MAIS LARGOS */
+
+.campo-largo {
+  grid-column: span 2;
+}
+
+/* BOTÃO CADASTRAR */
+
+.admin-salvar {
+  margin-top: 28px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 9px;
+  background: #153b5f;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-salvar:hover {
+  background: #0d2c47;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(21, 59, 95, 0.2);
+}
+
+.admin-salvar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* MENSAGEM DE SUCESSO / ERRO */
+
+.admin-mensagem {
+  margin-top: 18px;
+  padding: 13px 15px;
+  border-radius: 9px;
+  background: #eef6fb;
+  color: #153b5f;
+  font-weight: 600;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .admin-formulario-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+  .admin-formulario {
+    padding: 22px;
+  }
+
+  .admin-formulario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-largo {
+    grid-column: auto;
+  }
+
+  .admin-salvar {
+    width: 100%;
+  }
 }
