@@ -31,7 +31,8 @@ function Home() {
   const [mensagem, setMensagem] = useState("");
   const [mensagemEnvio, setMensagemEnvio] = useState("");
   const [enviando, setEnviando] = useState(false);
-
+const [feedbackContato, setFeedbackContato] = useState("");
+const [enviandoContato, setEnviandoContato] = useState(false);
   // =========================
   // BUSCAR IMÓVEIS
   // =========================
@@ -145,7 +146,50 @@ function Home() {
 
     setEnviando(false);
   }
+async function enviarMensagemContato(event) {
+  event.preventDefault();
 
+  setEnviandoContato(true);
+  setFeedbackContato("");
+
+  const { error } = await supabase
+    .from("mensagens_contato")
+    .insert([
+      {
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        assunto: imovelSelecionado
+          ? `Interesse no imóvel: ${imovelSelecionado}`
+          : "Contato pelo site",
+        mensagem: mensagem,
+        status: "Nova",
+      },
+    ]);
+
+  if (error) {
+    console.error("Erro ao enviar mensagem:", error);
+
+    setFeedbackContato(
+      "Não foi possível enviar sua mensagem. Tente novamente."
+    );
+
+    setEnviandoContato(false);
+    return;
+  }
+
+  setFeedbackContato(
+    "Mensagem enviada com sucesso! Em breve entraremos em contato."
+  );
+
+  setNome("");
+  setEmail("");
+  setTelefone("");
+  setImovelSelecionado("");
+  setMensagem("");
+
+  setEnviandoContato(false);
+}
   return (
     <div className="site">
 
@@ -709,7 +753,7 @@ function Home() {
 
             <form
               className="formulario-contato"
-              onSubmit={enviarInteresse}
+             onSubmit={enviarMensagemContato}
             >
 
               <input
@@ -779,20 +823,20 @@ function Home() {
                 required
               />
 
-              <button
-                type="submit"
-                disabled={enviando}
-              >
-                {enviando
-                  ? "Enviando..."
-                  : "Enviar interesse"}
-              </button>
+            <button
+  type="submit"
+  disabled={enviandoContato}
+>
+  {enviandoContato
+    ? "Enviando..."
+    : "Enviar mensagem"}
+</button>
 
-              {mensagemEnvio && (
-                <p>
-                  {mensagemEnvio}
-                </p>
-              )}
+{feedbackContato && (
+  <p>
+    {feedbackContato}
+  </p>
+)}
 
             </form>
 

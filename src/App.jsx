@@ -7,11 +7,19 @@ import Dashboard from "./pages/Dashboard";
 import Contato from "./pages/Contato";
 import Cliente from "./pages/Cliente";
 import Proprietario from "./pages/Proprietario";
-
+import AdminLeads from "./pages/AdminLeads";
+import AdminSimulacoes from "./pages/AdminSimulacoes";
+import AdminCorretores from "./pages/AdminCorretores";
+import AdminVisitas from "./pages/AdminVisitas";
+import AdminMensagens from "./pages/AdminMensagens";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+  path="/dashboard/leads"
+  element={<AdminLeads />}
+/>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
@@ -20,9 +28,25 @@ function App() {
         <Route path="/cliente" element={<Cliente />} />
         <Route path="/proprietario" element={<Proprietario />} />
         <Route
+  path="/dashboard/corretores"
+  element={<AdminCorretores />}
+/>
+        <Route
+  path="/dashboard/simulacoes"
+  element={<AdminSimulacoes />}
+/>
+        <Route
   path="/dashboard/imoveis"
   element={<AdminImoveis />}
 />s
+<Route
+  path="/dashboard/visitas"
+  element={<AdminVisitas />}
+/>
+<Route
+  path="/dashboard/mensagens"
+  element={<AdminMensagens />}
+/>
       </Routes>
     </BrowserRouter>
   );

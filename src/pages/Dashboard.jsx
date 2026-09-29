@@ -11,7 +11,6 @@ function Dashboard() {
 
   useEffect(() => {
     async function verificarAcesso() {
-      // VERIFICA SE EXISTE USUÁRIO LOGADO
       const {
         data: { session },
       } = await supabase.auth.getSession();
@@ -21,7 +20,6 @@ function Dashboard() {
         return;
       }
 
-      // BUSCA O TIPO DO USUÁRIO
       const { data: perfil, error } = await supabase
         .from("perfis")
         .select("tipo")
@@ -37,7 +35,6 @@ function Dashboard() {
         return;
       }
 
-      // SOMENTE ADMIN PODE ACESSAR O DASHBOARD
       if (perfil.tipo !== "admin") {
         if (perfil.tipo === "cliente") {
           navigate("/cliente", { replace: true });
@@ -94,29 +91,29 @@ function Dashboard() {
             📊 Início
           </a>
 
-          <a href="#imoveis">
+          <Link to="/dashboard/imoveis">
             🏠 Imóveis
-          </a>
+          </Link>
 
-          <a href="#proprietarios">
-            👤 Proprietários
-          </a>
+          <Link to="/dashboard/leads">
+            👥 Leads
+          </Link>
 
-          <a href="#clientes">
-            👥 Clientes
-          </a>
+          <Link to="/dashboard/simulacoes">
+            💰 Simulações de crédito
+          </Link>
 
-          <a href="#contratos">
-            📄 Contratos
-          </a>
+          <Link to="/dashboard/corretores">
+            🧑‍💼 Corretores
+          </Link>
 
-          <a href="#visitas">
-            📅 Visitas
-          </a>
+          <Link to="/dashboard/visitas">
+            📅 Agendamentos
+          </Link>
 
-          <a href="#propostas">
-            💬 Propostas
-          </a>
+          <Link to="/dashboard/mensagens">
+            ✉️ Mensagens
+          </Link>
         </nav>
 
         <Link
@@ -160,65 +157,83 @@ function Dashboard() {
 
         <div className="dashboard-cards">
 
-          <div className="dashboard-card">
+          <Link
+            to="/dashboard/imoveis"
+            className="dashboard-card"
+          >
             <span>🏠</span>
 
             <h3>Imóveis</h3>
 
             <p>
-              Cadastrar, editar e acompanhar imóveis.
+              Cadastrar, visualizar, editar e excluir imóveis.
             </p>
-          </div>
+          </Link>
 
-          <div className="dashboard-card">
+          <Link
+            to="/dashboard/leads"
+            className="dashboard-card"
+          >
             <span>👥</span>
 
-            <h3>Clientes</h3>
+            <h3>Leads</h3>
 
             <p>
-              Gerenciar inquilinos e compradores.
+              Gerenciar pessoas interessadas nos imóveis.
             </p>
-          </div>
+          </Link>
 
-          <div className="dashboard-card">
-            <span>📄</span>
+          <Link
+            to="/dashboard/simulacoes"
+            className="dashboard-card"
+          >
+            <span>💰</span>
 
-            <h3>Contratos</h3>
+            <h3>Simulações de Crédito</h3>
 
             <p>
-              Consultar contratos e vencimentos.
+              Cadastrar e acompanhar simulações de financiamento.
             </p>
-          </div>
+          </Link>
 
-          <div className="dashboard-card">
+          <Link
+            to="/dashboard/corretores"
+            className="dashboard-card"
+          >
+            <span>🧑‍💼</span>
+
+            <h3>Corretores</h3>
+
+            <p>
+              Cadastrar e gerenciar os corretores da imobiliária.
+            </p>
+          </Link>
+
+          <Link
+            to="/dashboard/visitas"
+            className="dashboard-card"
+          >
             <span>📅</span>
 
-            <h3>Visitas</h3>
+            <h3>Agendamentos de Visitas</h3>
 
             <p>
-              Acompanhar visitas agendadas.
+              Consultar e gerenciar visitas aos imóveis.
             </p>
-          </div>
+          </Link>
 
-          <div className="dashboard-card">
-            <span>💬</span>
+          <Link
+            to="/dashboard/mensagens"
+            className="dashboard-card"
+          >
+            <span>✉️</span>
 
-            <h3>Propostas</h3>
+            <h3>Mensagens Recebidas</h3>
 
             <p>
-              Visualizar mensagens recebidas.
+              Visualizar mensagens enviadas pelo formulário do site.
             </p>
-          </div>
-
-          <div className="dashboard-card">
-            <span>👤</span>
-
-            <h3>Proprietários</h3>
-
-            <p>
-              Gerenciar proprietários cadastrados.
-            </p>
-          </div>
+          </Link>
 
         </div>
 

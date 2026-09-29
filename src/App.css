@@ -1996,4 +1996,12 @@ footer {
   .admin-salvar {
     width: 100%;
   }
+}.dashboard-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
 }
